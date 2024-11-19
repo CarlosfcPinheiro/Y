@@ -1,4 +1,4 @@
-@media screen and (max-width:600px) {
+@media screen and (max-width:700px) {
     main{
         img{
             display: none;
@@ -27,5 +27,38 @@
               font-size: 13px;  
             }
         }
+    }
+}
+
+@media screen and (max-width: 980px) and (min-width: 701px) {
+    main{
+        img{
+            height: 300px;
+        }
+
+        form{
+            height: 480px;
+            width: 300px;
+            
+            fildset{
+                label{
+                    font-size: 14px;
+                }
+
+                input{
+                    width: 100%;
+                    height: 30px;
+                }
+            }
+
+            #buttonLogin{
+                width: 150px;
+            }
+
+            a,p{
+              font-size: 13px;  
+            }
+        }
+    
     }
 }
