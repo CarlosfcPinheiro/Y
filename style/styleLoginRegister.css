@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&display=swap');
+
+:root{
+    --BackgroundColor : #1E1E1E;
+    --BackgroundInput: rgba(217, 217, 217, 0.1);
+    --BorderInput: #FFFFFF;
+    --ColorButton: #2528F4;
+    --ColorHoverButton: #4749f7;
+    --FontFamily: "Reem Kufi";
+    --FontColor: #FFFFFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: var(--BackgroundColor);
+}
+
+main{
+    height: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    img{
+        height: 500px;
+    }
+
+    form{
+        border: 1px solid var(--BorderInput);
+        border-radius: 16px;
+
+        height: 550px;
+
+        padding: 32px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        
+        h1{
+            font-family: var(--FontFamily);
+            color: var(--FontColor);
+            font-weight: normal;
+            text-align: center;
+        }
+
+        fildset{
+            display: flex;
+            flex-direction: column;
+
+            label{
+                font-family: var(--FontFamily);
+                color: var(--FontColor);
+                font-weight: normal;
+            }
+
+            input{
+                background-color: var(--BackgroundInput);
+
+                width: 300px;
+                height: 40px;
+
+                border: 1px solid var(--BorderInput);
+                border-radius: 10px;
+            }
+        }
+
+        #buttonLogin{
+            background-color: var(--ColorButton);
+
+            font-family: var(--FontFamily);
+            color: var(--FontColor);
+            font-weight: normal;
+
+            border: 0px;
+            border-radius: 10px;
+
+            width: 200px;
+            height: 35px;
+
+            margin:  12px auto;
+            
+            cursor: pointer;
+        }
+
+        #buttonLogin:hover{
+            background-color: var(--ColorHoverButton);
+
+            transition: all .3s ease;
+        }
+
+        p, a{
+            font-family: var(--FontFamily);
+            font-weight: normal;
+            color: var(--FontColor);
+        }
+
+        a:hover{
+            color: var(--ColorHoverButton);
+
+            transition: all .3s ease;
+        }
+    }
+}
