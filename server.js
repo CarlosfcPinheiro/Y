@@ -1,13 +1,14 @@
 // Import modules ==============
 const morgan = require('morgan');
 const express = require('express');
+require('dotenv').config();
 // Local Routes
 const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
 
 // Server config =============
 const server = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Middlewares ============
 server.use(morgan('tiny'));
