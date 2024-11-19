@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root{
+    --BackgroundColor : #1E1E1E;
+    --BackgroundHoverButton: rgba(255, 255, 255, 0.25);
+    --BorderColor: #FFFFFF;
+    --FontNameUser: "Poppins";
+    --GlobalFont: "Reem Kufi";
+    --FontColor: #FFFFFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--BackgroundColor);
+    
+    height: 100vh;
+}
+
+header{
+    border-bottom: 1px solid var(--BorderColor);
+
+    padding: 8px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+    img{
+        width: 30px;
+    }
+
+    #links{
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+
+        a{
+            font-family: var(--GlobalFont);
+            font-weight: normal;
+            color: var(--FontColor);
+
+            text-decoration: none;
+
+            position: relative;
+        }
+        
+        a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px; 
+            background-color: var(--FontColor);
+            transition: width .5s ease;
+        }
+        
+        a:hover::after {
+            width: 100%; 
+        }
+
+    }
+}
+
+main{
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    #nav{
+        border-right: 1px solid var(--BorderColor);
+
+        padding: 24px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        button{
+            background-color: transparent;
+
+            font-family: var(--GlobalFont);
+            font-weight: normal;
+            color: var(--FontColor);
+
+            border: 1px solid var(--BorderColor);
+            border-radius: 10px;
+
+            width: 150px;
+
+            padding: 8px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 8px;
+
+            cursor: pointer;
+
+            img{
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        button:hover{
+            background-color: var(--BackgroundHoverButton);
+
+            transition: all .3s ease;
+        }
+    }
+
+    #currentUsers{
+        border-left: 1px solid var(--BorderColor);
+
+        padding: 24px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        h1{
+            font-family: var(--GlobalFont);
+            font-weight: normal;
+            color: var(--FontColor);
+        }
+    }
+}
