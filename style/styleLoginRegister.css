@@ -110,3 +110,11 @@ main{
         }
     }
 }
+
+@media screen and (max-width:600px) {
+    main{
+        img{
+            display: none;
+        }
+    }
+}

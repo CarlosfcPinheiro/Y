@@ -113,6 +113,13 @@ main{
                 width: 30px;
                 height: 30px;
             }
+
+            a{
+                font-family: var(--GlobalFont);
+                color: var(--FontColor);
+
+                text-decoration: none;
+            }
         }
 
         button:hover{
@@ -137,4 +144,5 @@ main{
             color: var(--FontColor);
         }
     }
+
 }
