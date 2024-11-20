@@ -1,12 +1,17 @@
 // Connecting database Postgres with ORM Sequelize
 // Importing Sequelize and DataTypes class
 const {Sequelize} = require('sequelize');
+// Getting connect variables from .env
+require('dotenv').config();
+const host = process.env.DB_HOST;
+const username = process.env.DB_USER;
+const pswd = process.env.DB_PSWD;
 // Creating sequelize instance
 const sequelize = new Sequelize({
     dialect: 'postgres',
-    host: 'aws-0-sa-east-1.pooler.supabase.com',
-    username: 'postgres.wotdyyymccicaspuxktw',
-    password: 'toor!@#123R',
+    host: host,
+    username: username,
+    password: pswd,
     database: 'postgres',
     logging: true,
 });
@@ -20,4 +25,4 @@ const connectDB = async () => {
     }
 }
 
-connectDB();
+module.exports = connectDB;
