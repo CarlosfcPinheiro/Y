@@ -11,12 +11,13 @@ const User = sequelize.define(
         // Defining attributes
         id:{
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
             primaryKey: true
         },
         name:{
             type: DataTypes.STRING(40),
-            allowNull: false
+            allowNull: false,
         },
         password:{
             type: DataTypes.STRING(16),
@@ -24,7 +25,8 @@ const User = sequelize.define(
         },
         email:{
             type: DataTypes.STRING(40),
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         posts_qnt:{
             type: DataTypes.INTEGER,
@@ -38,18 +40,18 @@ const User = sequelize.define(
         }
     },
     {
+        schema: 'yweb',
         tableName: 'users',
-        timestamps: false
+        timestamps: false,
     }
 );
 // Test function to sync database's entity
-const testUserModel = () => {
+const testUserModel = async () => {
     try{
         sequelize.sync();
     } catch(err){
         console.log(err);
     }
 }
-testUserModel();
 // Exporting User model
 module.exports = User;

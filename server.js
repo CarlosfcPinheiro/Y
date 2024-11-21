@@ -14,6 +14,7 @@ const port = process.env.PORT || 3000;
 
 // Middlewares ============
 server.use(morgan('tiny'));
+server.use(express.json());
 server.use('/api/v1/users', userRouter);
 server.use('/api/v1/post', postRouter);
 

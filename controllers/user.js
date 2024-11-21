@@ -1,20 +1,80 @@
-// Inmport local modules
+// Inmport User Model
+const User = require('../models/user');
 
-// Creating user controllers
+// Creating user controllers ============
+// Getting all users
 const getAllUsers = async (req, res) => {
-    res.send('GET All Users.');
+    // Object destructuring with default value 'name'
+    const {sortBy='name', order='ASC'} = req.query;
+    try{
+        const users = await User.findAll({
+            order: [[sortBy, order.toUpperCase()]]
+        });
+        res.status(200).json(users);
+    } catch(err){
+        res.status(500).json({
+            message:'Error to get users', 
+            error: err.message
+        });
+    }
 }
-
+// Get a specific user based on id
 const getUser = async (req, res) => {
-    res.send('GET a specifc User.');
+    const {id} = req.params;
+    try{
+        const user = await User.findAll({
+            where: {id:id}
+        });
+        res.status(200).json({user});
+    } catch (err){
+        res.status(500).json({
+            message: 'Get user by id error',
+            error: err.message
+        });
+    }
 }
-
+// Updated a specific data on the user based on id
 const patchUser = async (req, res) => {
-    res.send('PATCH and update a specific info from User.');
-}
+    try{
+        // Get the id value on param
+        const {id} = req.params;
+        const updateData = req.body
 
+        const [updated] = await User.update(updateData, {
+            // Update all instances that matches attribute 'where'
+            where: {id:id}
+        });
+
+        // Return message to use
+        if (updated){
+            const updatedUser = await User.findByPk(id);
+            res.status(200).json({
+                message: "User updated successfuly",
+                User: updatedUser
+            });
+        }
+    } catch(err){
+        console.log(`Update user error: ${err}`);
+    }
+}
+// Create a new user
 const postUser = async (req, res) => {
-    res.send('POST and create an User.');
+    try{
+        // Getting credentials from the request body
+        const {name, email, password} = req.body;
+        // Creating new row in database
+        const newUser = await User.create({name, email, password});
+        // Config response
+        res.status(201).json({
+            message: 'User created successfuly',
+            user: {newUser}
+        });
+    }catch(err){
+        res.status(500).json({
+            message: 'Create user error', 
+            error: err.message
+        });
+    }
 }
 
 // Exporting functions/methods

@@ -6,16 +6,17 @@ require('dotenv').config();
 const host = process.env.DB_HOST;
 const username = process.env.DB_USER;
 const pswd = process.env.DB_PSWD;
+const db_name = process.env.DB_NAME;
 // Creating sequelize instance
 const sequelize = new Sequelize({
     dialect: 'postgres',
     host: host,
     username: username,
     password: pswd,
-    database: 'postgres',
+    database: db_name,
     logging: true,
 });
-
+// Connect DB function
 const connectDB = async () => {
     try{
         await sequelize.authenticate();
@@ -24,5 +25,5 @@ const connectDB = async () => {
         console.log(`DataBase connection error: ${err}`);
     }
 }
-
+// Exporting connectDB function
 module.exports = connectDB;

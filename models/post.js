@@ -36,20 +36,19 @@ const Post = sequelize.define(
         }
     },
     {
+        schema: 'yweb',
         tableName: 'posts',
         timestamps: false
     }
 );
 
 // Test function to sync database's entity
-const testPostModel = () => {
+const testPostModel = async() => {
     try{
         sequelize.sync();
     }catch(err){
         console.log(err);
     }
 };
-testPostModel();
-
 // Exporting Post Model
 module.exports = Post;
