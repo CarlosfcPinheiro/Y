@@ -54,7 +54,10 @@ const patchUser = async (req, res) => {
             });
         }
     } catch(err){
-        console.log(`Update user error: ${err}`);
+        res.status(500).json({
+            message: 'Update user error',
+            error: err.message
+        });
     }
 }
 // Create a new user
