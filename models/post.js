@@ -1,8 +1,10 @@
 // Post entity model ============
 // Importing Sequelize and DataTypes class
 const {Sequelize, DataTypes} = require('sequelize');
+// Import sequelize class to database connect
 const sequelize = require('../db/connectModel');
-const { postUser } = require('../controllers/user');
+// Import User model entity
+const User = require('./user');
 // Creating Post Model
 const Post = sequelize.define(
     'Post',
@@ -26,7 +28,7 @@ const Post = sequelize.define(
             allowNull: true,
             defaultValue: Sequelize.NOW
         },
-        userId:{
+        userid:{
             type: DataTypes.INTEGER,
             allowNull: false,
             references:{
@@ -41,6 +43,10 @@ const Post = sequelize.define(
         timestamps: false
     }
 );
+
+// Associations (User -> 1:n -> Post)
+Post.belongsTo(User, {foreignKey: 'id', as: 'author'});
+User.hasMany(Post, {foreignKey: 'userid', as: 'posts'});
 
 // Test function to sync database's entity
 const testPostModel = async() => {
