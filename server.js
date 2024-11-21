@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
 server.use(morgan('tiny'));
 server.use(express.json());
 server.use('/api/v1/users', userRouter);
-server.use('/api/v1/post', postRouter);
+server.use('/api/v1/posts', postRouter);
 
 // Standard get request
 server.get('/', (req, res) => {
