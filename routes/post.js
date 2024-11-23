@@ -12,8 +12,8 @@ const {
 
 // Attribute routes to http methods
 Router.route('/').get(getAllPosts);
-Router.route('/:userId').get(getPost);
-Router.route('/:userId').post(postUserPost);
+Router.route('/:userid').get(getPost);
+Router.route('/').post(postUserPost);
 Router.route('/:id').delete(deletePost);
 
 // Exporting post router
