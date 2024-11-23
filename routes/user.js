@@ -8,7 +8,8 @@ const {
     getAllUsers,
     getUser,
     patchUser,
-    postUser
+    postUser,
+    postLoginUser
 } = require('../controllers/user');
 
 // Attribute routes to http methods
@@ -16,6 +17,7 @@ Router.route('/').get(getAllUsers);
 Router.route('/:id').get(getUser);
 Router.route('/:id').patch(patchUser);
 Router.route('/').post(postUser);
+Router.route('/login').post(postLoginUser);
 
 // Exporting User router
 module.exports = Router;

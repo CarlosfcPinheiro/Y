@@ -1,7 +1,11 @@
 // Importing hash function
-const {hashPaswd} = require('../utils/hash');
+const {hashPaswd, verifyPaswd} = require('../utils/hash');
+// Importing jwt module
+const jwt = require('jsonwebtoken');
 // Inmport User Model
 const User = require('../models/user');
+// Getting var envs
+require('dotenv').config();
 
 // Creating user controllers ============
 // Getting all users
@@ -15,7 +19,7 @@ const getAllUsers = async (req, res) => {
         res.status(200).json(users);
     } catch(err){
         res.status(500).json({
-            message:'Error to get users', 
+            message:'Error to get users.', 
             error: err.message
         });
     }
@@ -30,7 +34,7 @@ const getUser = async (req, res) => {
         res.status(200).json({user});
     } catch (err){
         res.status(500).json({
-            message: 'Get user by id error',
+            message: 'Get user by id error.',
             error: err.message
         });
     }
@@ -51,13 +55,13 @@ const patchUser = async (req, res) => {
         if (updated){
             const updatedUser = await User.findByPk(id);
             res.status(200).json({
-                message: "User updated successfuly",
+                message: "User updated successfuly.",
                 User: updatedUser
             });
         }
     } catch(err){
         res.status(500).json({
-            message: 'Update user error',
+            message: 'Update user error.',
             error: err.message
         });
     }
@@ -73,14 +77,54 @@ const postUser = async (req, res) => {
         const newUser = await User.create({name, email, password});
         // Config response
         res.status(201).json({
-            message: 'User created successfuly',
+            message: 'User created successfuly.',
             user: {newUser}
         });
     }catch(err){
         res.status(500).json({
-            message: 'Create user error', 
+            message: 'Create user error.', 
             error: err.message
         });
+    }
+}
+
+// Login with an existing User
+const postLoginUser = async (req, res) => {
+    const {name, password} = req.body;
+    try{
+        // Find by an user with name provided
+        const user = await User.findOne({
+            where: {name}
+        });
+        // Check if name user is valid
+        if (!user){
+            return res.status(404).json({
+                message: `User with name "${name}" not found.`
+            });
+        }
+        // Verify the password
+        const verifyPassword = await verifyPaswd(password, user.password);
+        if (!verifyPassword){
+            return res.status(401).json({
+                message: 'Invalid password.'
+            });
+        }
+
+        // Generate jwt
+        console.log(process.env.SECRET_KEY);
+        const token = jwt.sign({id: user.id, name: user.name}, process.env.SECRET_KEY, {
+            expiresIn: '1h'
+        });
+
+        res.status(200).json({
+            message: 'Login successfully.',
+            authToken: token
+        });
+    } catch(err){
+        res.status(500).json({
+            message: 'Login error.',
+            error: err.message
+        })
     }
 }
 
@@ -89,5 +133,6 @@ module.exports = {
     getAllUsers,
     getUser,
     patchUser,
-    postUser
+    postUser,
+    postLoginUser
 }
