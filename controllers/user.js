@@ -1,3 +1,5 @@
+// Importing hash function
+const {hashPaswd} = require('../utils/hash');
 // Inmport User Model
 const User = require('../models/user');
 
@@ -64,7 +66,9 @@ const patchUser = async (req, res) => {
 const postUser = async (req, res) => {
     try{
         // Getting credentials from the request body
-        const {name, email, password} = req.body;
+        let {name, email, password} = req.body;
+        // Hash password to include on database
+        password = await hashPaswd(password);
         // Creating new row in database
         const newUser = await User.create({name, email, password});
         // Config response
