@@ -62,13 +62,25 @@ const postUserPost = async (req, res) => {
     // Creating new Post
     try{
         const newPost = await Post.create({description, img_data, userid});
+        const user = await User.findByPk(userid);
+        // Checks if user by userid param exists
+        if (!user){
+            return res.status(404).json({
+                message: 'User not found'
+            });
+        }
+        // Update user posts_qnt
+        user.posts_qnt = (user.posts_qnt || 0) + 1;
+        // Save changes directly
+        await user.save();
+
         res.status(201).json({
             message: 'New Post created successfull',
             post: newPost
         });
     } catch (err){
         res.status(500).json({
-            message: 'Create post by user id error',
+            message: 'Error when creating new Post',
             error: err.message
         });
     }
@@ -97,13 +109,25 @@ const deletePost = async (req, res) => {
         await Post.destroy({
             where: {id:id}
         });
+        // Checks if the user exists
+        const user = await User.findByPk(post.userid);
+        if (!user){
+            return res.status(404).json({
+                message: 'User not found'
+            });
+        }
+        // Update user posts_qnt
+        user.posts_qnt = (user.posts_qnt || user.posts_qnt > 0) - 1;
+        // Save changes directly
+        await user.save();
+
         res.status(200).json({
             message: 'Post has been deleted successfuly',
             deletedPost: id
         });
     } catch(err){
         res.status(500).json({
-            message: 'Delete Post error',
+            message: 'Error when delete Post',
             error: err.message
         });
     }
