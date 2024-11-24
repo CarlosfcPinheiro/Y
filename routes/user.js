@@ -2,7 +2,6 @@
 const express = require('express');
 // Creating Router object
 const Router = express.Router();
-
 // Importing local controllers
 const {
     getAllUsers,
@@ -11,6 +10,11 @@ const {
     postUser,
     postLoginUser
 } = require('../controllers/user');
+// Importing middlewares
+const authToken = require('../middlewares/auth');
+
+// Appllying middlewares
+Router.patch('/:id', authToken);
 
 // Attribute routes to http methods
 Router.route('/').get(getAllUsers);

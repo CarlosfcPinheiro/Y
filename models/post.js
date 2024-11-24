@@ -45,7 +45,7 @@ const Post = sequelize.define(
 );
 
 // Associations (User -> 1:n -> Post)
-Post.belongsTo(User, {foreignKey: 'id', as: 'author'});
+Post.belongsTo(User, {foreignKey: 'userid', as: 'author'});
 User.hasMany(Post, {foreignKey: 'userid', as: 'posts'});
 
 // Test function to sync database's entity

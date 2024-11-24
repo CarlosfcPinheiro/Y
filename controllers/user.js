@@ -44,7 +44,13 @@ const patchUser = async (req, res) => {
     try{
         // Get the id value on param
         const {id} = req.params;
-        const updateData = req.body
+        const updateData = req.body;
+        // Verify if the id of token auth is equal to id param
+        if (req.user.id != id){
+            return res.status(403).json({
+                message: 'Access denied.'
+            });
+        }
 
         const [updated] = await User.update(updateData, {
             // Update all instances that matches attribute 'where'
@@ -92,7 +98,7 @@ const postUser = async (req, res) => {
 const postLoginUser = async (req, res) => {
     const {name, password} = req.body;
     try{
-        // Find by an user with name provided
+        // Find user by name provided
         const user = await User.findOne({
             where: {name}
         });
@@ -110,8 +116,7 @@ const postLoginUser = async (req, res) => {
             });
         }
 
-        // Generate jwt
-        console.log(process.env.SECRET_KEY);
+        // Generate encrypted jwt based on secret key
         const token = jwt.sign({id: user.id, name: user.name}, process.env.SECRET_KEY, {
             expiresIn: '1h'
         });

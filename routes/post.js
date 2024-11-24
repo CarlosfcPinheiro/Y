@@ -9,6 +9,12 @@ const {
     postUserPost,
     deletePost
 } = require('../controllers/post');
+// Importing middlewares
+const authToken = require('../middlewares/auth');
+
+// Applying middlewares
+Router.delete('/:id', authToken);
+Router.post('/', authToken);
 
 // Attribute routes to http methods
 Router.route('/').get(getAllPosts);

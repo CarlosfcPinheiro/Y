@@ -7,7 +7,6 @@ const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
 // Local modules
 const connectDB = require('./db/connect');
-
 // Server config =============
 const server = express();
 const port = process.env.PORT || 3000;
