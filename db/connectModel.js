@@ -1,7 +1,15 @@
 const {Sequelize} = require('sequelize');
-const password = 'toor!@#123R'
+const password = 'yweb135792468YWEB'
+// Getting var envs
+require('dotenv').config();
+const host = process.env.DB_HOST;
+const db_name = process.env.DB_NAME;
+const port = process.env.DB_PORT;
+const paswd = process.env.DB_PASWD;
+const user = process.env.DB_USER;
 // Instanciating Sequelize class => Manage and config database creating models
-const sequelize = new Sequelize(`postgres://postgres.wotdyyymccicaspuxktw:${encodeURIComponent(password)}@aws-0-sa-east-1.pooler.supabase.com:6543/postgres`, 
+
+const sequelize = new Sequelize(`postgres://${user}:${paswd}@${host}:${port}/${db_name}`, 
     {
         dialect:'postgres',
         define: {

@@ -5,14 +5,14 @@ const {Sequelize} = require('sequelize');
 require('dotenv').config();
 const host = process.env.DB_HOST;
 const username = process.env.DB_USER;
-const pswd = process.env.DB_PSWD;
+const paswd = process.env.DB_PASWD;
 const db_name = process.env.DB_NAME;
 // Creating sequelize instance
 const sequelize = new Sequelize({
     dialect: 'postgres',
     host: host,
     username: username,
-    password: pswd,
+    password: paswd,
     database: db_name,
     logging: true,
 });
