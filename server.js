@@ -7,6 +7,8 @@ const userRouter = require('./routes/user');
 const postRouter = require('./routes/post');
 // Local modules
 const connectDB = require('./db/connect');
+// Importing Cors config
+const corsConfig = require('./utils/corsConfig');
 // Swagger modules
 const swaggerUI = require('swagger-ui-express');
 const swaggerOp = require('./utils/swagger');
@@ -19,6 +21,8 @@ server.use(morgan('tiny'));
 server.use(express.json());
 server.use('/api/v1/users', userRouter);
 server.use('/api/v1/posts', postRouter);
+// Applying cors config
+server.use(corsConfig);
 // Applying swagger-ui to /api-docs route
 server.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerOp));
 
