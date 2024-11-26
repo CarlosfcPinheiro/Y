@@ -91,6 +91,7 @@ Router.route('/').get(getAllPosts);
  *              type: string
  *      responses:
  *          200:
+ *              description: Retorna os posts de um usuário específico
  *              content:
  *                  application/json:
  *                      schema:

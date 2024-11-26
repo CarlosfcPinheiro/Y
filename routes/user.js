@@ -146,11 +146,44 @@ Router.route('/').post(postUser);
  *                          example: novojoa123zinho
  *      responses:
  *          200:
- *              description: Usuário atualizado com sucesso
+ *              description: Usuário atualizado com sucesso.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              message:
+ *                                  type: string
+ *                                  example: Updated successfuly.
+ *                              User:
+ *                                  type: object
+ *                                  example:
+ *                                      id: 1
+ *                                      name: Joãozinho123
+ *                                      email: joaoz123@gmail.com
+ *                                      password: jao123zinho
+ *                                      posts_qnt: 1
+ *                                      created_at: 2024-11-26T22:07:49.979Z
+ *                                      
+ *                              
  *          403:
- *              description: Acesso negado
+ *              description: Acesso negado.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                      message:
+ *                          type: string
+ *                          message: Access denied.
  *          500:
- *              description: Erro ao atualizar usuário        
+ *              description: Erro ao atualizar usuário.  
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              message:
+ *                                 type: string
+ *                                 message: Update user error.     
  */
 Router.route('/:id').patch(patchUser);
 /**
@@ -194,10 +227,34 @@ Router.route('/:id').patch(patchUser);
  *                                  type: string
  *          404:
  *              description: Usuário com 'nome' não encontrado.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              message:
+ *                                  type: string
+ *                                  example: User with name 'name' not found.
  *          401:
  *              description: Senha inválida.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              message:
+ *                                  type: string
+ *                                  example: Invalid password.
  *          500:
- *              description: Erro ao efetuar login.      
+ *              description: Erro ao efetuar login.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              message:
+ *                                  type: string
+ *                                  example: Login error.
  */
 Router.route('/login').post(postLoginUser);
 
