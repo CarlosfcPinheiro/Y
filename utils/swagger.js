@@ -11,8 +11,13 @@ const swaggerOp = {
         },
         servers:[
             {
-                url:'http://localhost:3000',
+                url:'https://prog-webii-projeto.onrender.com',
+                description: 'Produção'
             },
+            {
+                url: 'http://localhost:3000',
+                description: 'Local'
+            }
         ],
     },
     apis: ['./routes/*.js'],
