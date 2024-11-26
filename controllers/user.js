@@ -4,6 +4,8 @@ const {hashPaswd, verifyPaswd} = require('../utils/hash');
 const jwt = require('jsonwebtoken');
 // Inmport User Model
 const User = require('../models/user');
+// Import operator
+const Op = require('sequelize').Op;
 // Getting var envs
 require('dotenv').config();
 
@@ -83,10 +85,23 @@ const postUser = async (req, res) => {
     try{
         // Getting credentials from the request body
         let {name, email, password} = req.body;
+        // Find an user with same name or email
+        const user = await User.findOne({
+            where:{
+                [Op.or]: [{name:name}, {email:email}]
+            }
+        });
+        // Check if there is an user with same credentials
+        if (user){
+            return res.status(409).json({
+                message: 'Name or email already being used.'
+            });
+        }
         // Hash password to include on database
         password = await hashPaswd(password);
         // Creating new row in database
         const newUser = await User.create({name, email, password});
+
         // Config response
         res.status(201).json({
             message: 'User created successfuly.',
