@@ -228,6 +228,7 @@ main{
             width: 100%;
             height: 60px;
 
+            margin-bottom: 12px;
             padding: 0 8px;
 
             overflow: visible;
@@ -241,6 +242,8 @@ main{
             font-family: var(--GlobalFont);
             font-weight: normal;
             color: var(--FontColor);
+
+            width: 100%;
 
             margin: 16px 0 8px 0;
         }
@@ -275,5 +278,40 @@ main{
     
     #postSubmit:hover::after {
         width: 100%; 
+    }
+}
+
+#profileContain{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    #profile{
+        background-color: var(--BackgroundHoverButton);
+
+        border-bottom: 1px solid var(--BorderColor);
+
+        padding: 64px;
+
+        width: 100%;
+        height: 20%; 
+    }
+
+    #divPostProfile{
+        padding: 64px;
+
+        h1{
+            font-family: var(--GlobalFont);
+            font-weight: normal;
+            font-size: 24px;
+            color: var(--FontColor);
+        }
+
+        #posts{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
     }
 }
