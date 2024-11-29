@@ -4,7 +4,7 @@ const cors = require('cors');
 // Set configs
 const corsConfig = cors({
     origin: ['http://localhost:5500', 'http://localhost:3000', 'https://prog-webii-projeto.onrender.com'],
-    methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 });

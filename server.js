@@ -17,12 +17,13 @@ const server = express();
 const port = process.env.PORT || 3000;
 
 // Middlewares ============
-server.use(morgan('tiny'));
-server.use(express.json());
-server.use('/api/v1/users', userRouter);
-server.use('/api/v1/posts', postRouter);
 // Applying cors config
 server.use(corsConfig);
+server.use(morgan('tiny'));
+server.use(express.json());
+// Applying routers
+server.use('/api/v1/users', userRouter);
+server.use('/api/v1/posts', postRouter);
 // Applying swagger-ui to /api-docs route
 server.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerOp));
 

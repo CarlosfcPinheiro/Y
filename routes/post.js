@@ -159,7 +159,7 @@ Router.route('/:userid').get(getPost);
  *                          - description
  *                          - userid
  *                      properties:
- *                          descricao:
+ *                          description:
  *                              type: string
  *                              description: Mensagem do post do usuário
  *                              example: Meu novo post
