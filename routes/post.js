@@ -217,25 +217,19 @@ Router.route('/:userid').get(getPost);
 Router.route('/').post(postUserPost);
 /**
  * @swagger
- * /api/v1/posts/{userid}:
+ * /api/v1/posts/{id}:
  *  delete:
  *      summary: Deleta o Post de um usuário específico
  *      tags:
  *          - Posts
- *      description: Deleta o post de um usuário específico baseado no id
+ *      description: Deleta o post de um usuário específico baseado no id do post
  *      parameters:
  *          - in: path
  *            name: id
  *            required: true
- *            description: id do usuário
+ *            description: id do post
  *            schema:
  *              type: integer
- *          - in: header
- *            name: Authorization
- *            required: true
- *            description: Token JWT válido para autenticação de usuário
- *            schema:
- *              type: string
  * 
  *      responses:
  *          404:

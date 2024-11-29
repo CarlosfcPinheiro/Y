@@ -19,6 +19,20 @@ const swaggerOp = {
                 description: 'Local'
             }
         ],
+        components:{
+            securitySchemes:{
+                BearerAuth:{
+                    type: 'http',
+                    scheme: 'bearer',
+                    bearerFormat: 'JWT',
+                }
+            }
+        },
+        security:[
+            {
+                BearerAuth: [],
+            }
+        ]
     },
     apis: ['./routes/*.js'],
 };
