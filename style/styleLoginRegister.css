@@ -70,6 +70,13 @@ main{
 
                 border: 1px solid var(--BorderInput);
                 border-radius: 10px;
+
+                outline: none;
+
+                padding-left: 0.5rem;
+
+                color: var(--FontColor);
+                font-size: 14px;
             }
         }
 
