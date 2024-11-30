@@ -8,6 +8,7 @@
     --ColorHoverButton: #4749f7;
     --FontFamily: "Reem Kufi";
     --FontColor: #FFFFFF;
+    --FailColor: #F74338;
 }
 
 *{
@@ -50,6 +51,15 @@ main{
             color: var(--FontColor);
             font-weight: normal;
             text-align: center;
+        }
+
+        #login-fail{
+            color: var(--FailColor);
+            display: none;
+        }
+
+        #login-fail.show{
+            display: inline-block;
         }
 
         fildset{
@@ -124,4 +134,20 @@ main{
             display: none;
         }
     }
+}
+
+#loading{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loading.show{
+    bottom: 0%;
 }
