@@ -129,6 +129,10 @@ main{
     }
 }
 
+.active{
+    background-color: var(--BackgroundHoverButton);
+}
+
 #currentUsers{
     border-left: 1px solid var(--BorderColor);
 
