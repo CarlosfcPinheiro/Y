@@ -144,7 +144,12 @@ const postLoginUser = async (req, res) => {
 
         res.status(200).json({
             message: 'Login successfully.',
-            authToken: token
+            authToken: token,
+            user: {
+                id: user.id,
+                name: user.name,
+                posts_qnt: user.posts_qnt
+            }
         });
     } catch(err){
         res.status(500).json({

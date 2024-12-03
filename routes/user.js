@@ -321,6 +321,14 @@ Router.route('/:id').patch(patchUser);
  *                                  example: Login successfully.
  *                              authToken:
  *                                  type: string
+ *                                  example: AJSuaysu91923OAnzxc192
+ *                              user:
+ *                                  type: object
+ *                                  description: objeto com os dados do usuário logado
+ *                                  example:
+ *                                      id: 1
+ *                                      name: joaozinho123
+ *                                      posts_qnt: 3
  *          404:
  *              description: Usuário com 'nome' não encontrado.
  *              content:
