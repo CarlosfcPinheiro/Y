@@ -44,7 +44,7 @@ main{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 12px;
+        gap: 10px;
         
         h1{
             font-family: var(--FontFamily);
@@ -53,12 +53,12 @@ main{
             text-align: center;
         }
 
-        #login-fail{
+        #login-fail, #register-fail, #register-fail-same{
             color: var(--FailColor);
             display: none;
         }
 
-        #login-fail.show{
+        #login-fail.show, #register-fail.show, #register-fail-same.show{
             display: inline-block;
         }
 

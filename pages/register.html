@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spinkit/2.0.1/spinkit.min.css">
+    <script src="../src/register.js" defer></script>
+
     <title>Document</title>
     <link rel="stylesheet" href="../style/styleLoginRegister.css">
     <link rel="stylesheet" href="../style/styleLoginRegisterMedia.css">
@@ -13,6 +17,8 @@
 
         <form>
             <h1>Cadastro</h1>
+            <p id="register-fail">*As senhas não coincidem*</p>
+            <p id="register-fail-same">*Nome ou email já estão cadastrados*</p>
             <fildset>
                 <label for="nameUser">Nome de usuário:</label>
                 <input type="text" id="nameUser">
@@ -23,15 +29,25 @@
             </fildset>
             <fildset>
                 <label for="password">Senha:</label>
-                <input type="text" id="password">
+                <input type="password" id="password">
             </fildset>
             <fildset>
                 <label for="confirmPassword">Confirmar senha:</label>
-                <input type="text" id="confirmPassword">
+                <input type="password" id="confirmPassword">
             </fildset>
             <input type="button" value="Confirmar" id="buttonLogin">
             <p>Já tem uma conta? <a href="login.html">Clique aqui!!</a></p>
         </form>
     </main>
+    <section id="loading">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+          </div>          
+    </section>
 </body>
 </html>
