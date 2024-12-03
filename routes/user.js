@@ -222,12 +222,6 @@ Router.route('/').post(postUser);
  *            description: ID do usuário que está logado e cadastrado no.
  *            schema:
  *              type: integer
- *          - in: header
- *            name: Authorization
- *            required: true
- *            description: Token JWT válido para autenticação de usuário
- *            schema:
- *              type: string
  *      requestBody:
  *          required: false
  *          content:
