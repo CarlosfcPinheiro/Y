@@ -32,10 +32,9 @@ async function callPost(){
   async function displayPosts(data){
     const postData = data;
     const divPost = document.querySelector('#posts')
+    const img = await imageProfileGenerator();
 
     postData.forEach(async (post) => {
-        const img = await imageProfileGenerator();
-
         const name = document.createElement('h1');
         // trocar para img
         const profileImage = document.createElement('img');
@@ -97,9 +96,8 @@ async function callPost(){
   async function displayUsers(data) {
     const divCurrentUsers = document.querySelector('#currentUsers');
     const usesrData = data;
-    
+    const img = await imageProfileGenerator();
     usesrData.forEach(async (users) =>{
-        const img = await imageProfileGenerator();
         // trocar para img
         const profileImage = document.createElement('img');
         const nameUser = document.createElement('h1');
