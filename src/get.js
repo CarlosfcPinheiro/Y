@@ -12,7 +12,6 @@ async function callPost(){
             throw new Error(`Erro ao acessar o servidor ${response.status}`)
         }else{
             const data = await response.json();
-          //   console.log(data)
             displayPosts(data);
         }
     } catch (error) {
@@ -46,16 +45,21 @@ async function callPost(){
   
         name.innerText = post.author.name;
         description.innerText = post.description
-        //A imagem nao esta pegando 
-        //image.setAttribute('src', urlImage);
-  
+    
+        // O ?? irá verificar se o valor post.img_data é igual a 'null'
+        const verificationURL = post.img_data ?? ' ' ;
+        // Decodificação da url
+        const urlImage = String.fromCharCode.apply(null, verificationURL.data)
+
+        image.setAttribute('src', urlImage);
+        
         divHeader.appendChild(name);
-        //divHeader.appendChild(image);
+        divHeader.appendChild(profileImage);
   
-        mensageIcon.setAttribute('src', '../images/mensage.png');
-        heartIcon.setAttribute('src', '../images/favorito 1.png');
-        saveIcon.setAttribute('src', '../images/marca 1.png');
-        downloadIcon.setAttribute('src', '../images/baixar 1.png');
+        mensageIcon.setAttribute('src', '../images/mensageIcon.svg');
+        heartIcon.setAttribute('src', '../images/favoriteIcon.svg');
+        saveIcon.setAttribute('src', '../images/saveIcon.svg');
+        downloadIcon.setAttribute('src', '../images/downloadIcon.svg');
   
         divIcon.appendChild(mensageIcon);
         divIcon.appendChild(heartIcon);
@@ -65,7 +69,7 @@ async function callPost(){
         footer.appendChild(saveIcon);
   
         divPost.appendChild(divHeader);
-      //   divPost.appendChild(image);
+        divPost.appendChild(image);
         divPost.appendChild(description);
         divPost.appendChild(footer);
     });
