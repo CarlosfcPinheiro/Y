@@ -20,7 +20,7 @@
 body{
     background-color: var(--BackgroundColor);
     
-    height: 100vh;
+    height: 100%;
 }
 
 header{
@@ -129,12 +129,72 @@ main{
     }
 }
 
-.active{
-    background-color: var(--BackgroundHoverButton);
+#posts{
+    .divAll{
+        width: 500px;
+        height: 500px;
+
+        margin-top: 32px;
+
+        .headerPost{
+            margin-bottom: 14px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 6px;
+
+            .profileImage{
+                background-color: #FFFFFF;
+
+                border-radius: 50%;
+
+                width: 40px;
+                height: 40px;
+            }
+
+            .nameUser{
+                font-family: var(--FontNameUser);
+                color: var(--FontColor);
+                font-weight: normal;
+                font-size: 20px;
+            }
+        }
+
+        .post{
+            width: 500px;
+        }
+
+        .description{
+            font-family: var(--GlobalFont);
+            font-weight: normal;
+            color: var(--FontColor);
+
+            margin-bottom: 8px;
+        }
+
+        .footerPost{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .icones{
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            img{
+                width: 25px;
+            }
+        }
+    }
 }
+
 
 #currentUsers{
     border-left: 1px solid var(--BorderColor);
+    
 
     padding: 24px;
 
