@@ -24,8 +24,9 @@ async function callPost(){
     const divPost = document.querySelector('#posts')
   
     postData.forEach(post => {
+        const divAll = document.createElement('div')
         const name = document.createElement('h1');
-        const profileImage = document.createElement('img');
+        const profileImage = document.createElement('div');
         const image = document.createElement('img');
         const description = document.createElement('p');
         const mensageIcon = document.createElement('img');
@@ -35,13 +36,15 @@ async function callPost(){
         const divIcon = document.createElement('div');
         const divHeader = document.createElement('div');
         const footer = document.createElement('div');
-  
+
         name.classList.add('nameUser');
         profileImage.classList.add('profileImage')
         image.classList.add('post');
         description.classList.add('description');
-        footer.classList.add('footer');   
+        footer.classList.add('footerPost');   
         divIcon.classList.add('icones'); 
+        divAll.classList.add('divAll');
+        divHeader.classList.add('headerPost')
   
         name.innerText = post.author.name;
         description.innerText = post.description
@@ -53,8 +56,8 @@ async function callPost(){
 
         image.setAttribute('src', urlImage);
         
-        divHeader.appendChild(name);
         divHeader.appendChild(profileImage);
+        divHeader.appendChild(name);
   
         mensageIcon.setAttribute('src', '../images/mensageIcon.svg');
         heartIcon.setAttribute('src', '../images/favoriteIcon.svg');
@@ -68,10 +71,12 @@ async function callPost(){
         footer.appendChild(divIcon);
         footer.appendChild(saveIcon);
   
-        divPost.appendChild(divHeader);
-        divPost.appendChild(image);
-        divPost.appendChild(description);
-        divPost.appendChild(footer);
+        divAll.appendChild(divHeader);
+        divAll.appendChild(image);
+        divAll.appendChild(description);
+        divAll.appendChild(footer);
+
+        divPost.appendChild(divAll);
     });
   } 
   
