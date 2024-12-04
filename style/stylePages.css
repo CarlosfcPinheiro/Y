@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
-:root{
-    --BackgroundColor : #1E1E1E;
+:root {
+    --BackgroundColor: #1E1E1E;
     --BackgroundHoverButton: rgba(255, 255, 255, 0.25);
     --BorderColor: #FFFFFF;
     --FontNameUser: "Poppins";
@@ -11,83 +11,89 @@
     --FontColor: #FFFFFF;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
+    font-family: Poppins;
     background-color: var(--BackgroundColor);
-    
     height: 100%;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-header{
+header {
     border-bottom: 1px solid var(--BorderColor);
-
     padding: 8px;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-
-    img{
+    img {
         width: 30px;
     }
 
-    #links{
+    #links {
         display: flex;
         flex-direction: row;
         gap: 24px;
 
-        a{
+        a {
             font-family: var(--GlobalFont);
             font-weight: normal;
             color: var(--FontColor);
-
             text-decoration: none;
-
             position: relative;
         }
-        
+
         a::after {
             content: "";
             position: absolute;
             left: 0;
             bottom: 0;
             width: 0;
-            height: 1px; 
+            height: 1px;
             background-color: var(--FontColor);
             transition: width .5s ease;
         }
-        
-        a:hover::after {
-            width: 100%; 
-        }
 
+        a:hover::after {
+            width: 100%;
+        }
     }
 }
 
-main{
+main {
     height: 100%;
-
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
 
-    #nav{
+    #nav {
         border-right: 1px solid var(--BorderColor);
-
         padding: 24px;
-
         display: flex;
         flex-direction: column;
         gap: 24px;
 
-        a{
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        ul li{
+            list-style: none;
+        }
+
+        a {
             background-color: transparent;
 
             font-family: var(--GlobalFont);
@@ -108,12 +114,12 @@ main{
             align-items: center;
             gap: 8px;
 
-            img{
+            img {
                 width: 30px;
                 height: 30px;
             }
 
-            a{
+            a {
                 font-family: var(--GlobalFont);
                 color: var(--FontColor);
 
@@ -121,7 +127,7 @@ main{
             }
         }
 
-        a:hover{
+        a:hover {
             background-color: var(--BackgroundHoverButton);
 
             transition: all .3s ease;
@@ -129,14 +135,13 @@ main{
     }
 }
 
-#posts{
-    .divAll{
+#posts {
+    .divAll {
         width: 500px;
         height: 500px;
-
         margin-top: 32px;
 
-        .headerPost{
+        .headerPost {
             margin-bottom: 14px;
 
             display: flex;
@@ -144,7 +149,7 @@ main{
             align-items: center;
             gap: 6px;
 
-            .profileImage{
+            .profileImage {
                 background-color: #FFFFFF;
 
                 border-radius: 50%;
@@ -153,7 +158,7 @@ main{
                 height: 40px;
             }
 
-            .nameUser{
+            .nameUser {
                 font-family: var(--FontNameUser);
                 color: var(--FontColor);
                 font-weight: normal;
@@ -161,11 +166,11 @@ main{
             }
         }
 
-        .post{
+        .post {
             width: 500px;
         }
 
-        .description{
+        .description {
             font-family: var(--GlobalFont);
             font-weight: normal;
             color: var(--FontColor);
@@ -173,18 +178,18 @@ main{
             margin-bottom: 8px;
         }
 
-        .footerPost{
+        .footerPost {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
 
-            .icones{
+            .icones {
                 display: flex;
                 flex-direction: row;
                 gap: 8px;
             }
 
-            img{
+            img {
                 width: 25px;
             }
         }
@@ -192,9 +197,9 @@ main{
 }
 
 
-#currentUsers{
+#currentUsers {
     border-left: 1px solid var(--BorderColor);
-    
+
 
     padding: 24px;
 
@@ -202,14 +207,14 @@ main{
     flex-direction: column;
     gap: 24px;
 
-    h1{
+    h1 {
         font-family: var(--GlobalFont);
         font-weight: normal;
         color: var(--FontColor);
     }
 }
 
-#addPost{
+#addPost {
     border: 1px solid var(--BorderColor);
     border-radius: 10px;
 
@@ -223,7 +228,7 @@ main{
     align-items: center;
     justify-content: center;
 
-    .contain{
+    .contain {
         width: 80%;
         height: 60%;
 
@@ -232,14 +237,14 @@ main{
         justify-content: center;
         align-items: center;
 
-        h1{
-            font-family: var(--GlobalFont); 
+        h1 {
+            font-family: var(--GlobalFont);
             font-weight: normal;
-            color: var(--FontColor);  
-             
+            color: var(--FontColor);
+
         }
 
-        div{
+        div {
             border: 1px solid var(--BorderColor);
             border-radius: 10px;
 
@@ -251,11 +256,11 @@ main{
             justify-content: center;
             align-items: center;
 
-            input{
+            input {
                 display: none;
             }
 
-            label{
+            label {
                 font-family: var(--FontNameUser);
                 font-weight: normal;
                 color: var(--FontColor);
@@ -274,21 +279,21 @@ main{
                 cursor: pointer;
             }
 
-            label:hover{
+            label:hover {
                 background-color: var(--BackgroundHoverButton);
 
                 transition: all .3s ease;
             }
         }
-        
-        textarea{
+
+        textarea {
             background-color: var(--BackgroundHoverButton);
-    
+
             color: var(--FontColor);
 
             border: .5px solid var(--BorderColor);
             border-radius: 10px;
-    
+
             width: 100%;
             height: 60px;
 
@@ -301,8 +306,8 @@ main{
         textarea::-webkit-scrollbar {
             width: 0px;
         }
-    
-        #labelDescription{
+
+        #labelDescription {
             font-family: var(--GlobalFont);
             font-weight: normal;
             color: var(--FontColor);
@@ -311,10 +316,10 @@ main{
 
             margin: 16px 0 8px 0;
         }
-    
+
     }
 
-    #postSubmit{
+    #postSubmit {
         background-color: transparent;
 
         font-family: var(--GlobalFont);
@@ -328,31 +333,31 @@ main{
         position: relative
     }
 
-    
+
     #postSubmit::after {
         content: "";
         position: absolute;
         left: 0;
         bottom: 0;
         width: 0;
-        height: 1px; 
+        height: 1px;
         background-color: var(--FontColor);
         transition: width .5s ease;
     }
-    
+
     #postSubmit:hover::after {
-        width: 100%; 
+        width: 100%;
     }
 }
 
-#profileContain{
+#profileContain {
     width: 100%;
     height: 100%;
 
     display: flex;
     flex-direction: column;
 
-    #profile{
+    #profile {
         background-color: var(--BackgroundHoverButton);
 
         border-bottom: 1px solid var(--BorderColor);
@@ -360,20 +365,20 @@ main{
         padding: 64px;
 
         width: 100%;
-        height: 20%; 
+        height: 20%;
     }
 
-    #divPostProfile{
+    #divPostProfile {
         padding: 64px;
 
-        h1{
+        h1 {
             font-family: var(--GlobalFont);
             font-weight: normal;
             font-size: 24px;
             color: var(--FontColor);
         }
 
-        #posts{
+        #posts {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
         }
