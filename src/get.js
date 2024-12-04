@@ -13,26 +13,39 @@ async function callPost(){
         }else{
             const data = await response.json();
             displayPosts(data);
+            displayUsers(data);
         }
     } catch (error) {
         console.log(`Erro ao acessar o servidor :${error}`);
     }
   }
   
+   async function imageProfileGenerator() {
+    try {
+        const response = await fetch('https://cataas.com/cat')
+        return response;
+    } catch (error) {
+        
+    }
+  }
+
   async function displayPosts(data){
     const postData = data;
     const divPost = document.querySelector('#posts')
-  
-    postData.forEach(post => {
-        const divAll = document.createElement('div')
+
+    postData.forEach(async (post) => {
+        const img = await imageProfileGenerator();
+
         const name = document.createElement('h1');
-        const profileImage = document.createElement('div');
+        // trocar para img
+        const profileImage = document.createElement('img');
         const image = document.createElement('img');
         const description = document.createElement('p');
         const mensageIcon = document.createElement('img');
         const heartIcon = document.createElement('img');
         const downloadIcon = document.createElement('img');
         const saveIcon = document.createElement('img');
+        const divAll = document.createElement('div')
         const divIcon = document.createElement('div');
         const divHeader = document.createElement('div');
         const footer = document.createElement('div');
@@ -48,6 +61,7 @@ async function callPost(){
   
         name.innerText = post.author.name;
         description.innerText = post.description
+        profileImage.setAttribute('src', img.url)
     
         // O ?? irá verificar se o valor post.img_data é igual a 'null'
         const verificationURL = post.img_data ?? ' ' ;
@@ -80,5 +94,29 @@ async function callPost(){
     });
   } 
   
+  async function displayUsers(data) {
+    const divCurrentUsers = document.querySelector('#currentUsers');
+    const usesrData = data;
+    
+    usesrData.forEach(async (users) =>{
+        const img = await imageProfileGenerator();
+        // trocar para img
+        const profileImage = document.createElement('img');
+        const nameUser = document.createElement('h1');
+        const divUsers = document.createElement('div');
+
+        nameUser.classList.add('nameUser');
+        profileImage.classList.add('profileImage');
+        divUsers.classList.add('divCurrentUsers')
+
+       profileImage.setAttribute('src', img.url)
+       nameUser.innerText = users.author.name;
+
+       divUsers.appendChild(profileImage);
+       divUsers.appendChild(nameUser);
+
+       divCurrentUsers.appendChild(divUsers);
+    })
+  }
   
   window.onload = callPost;

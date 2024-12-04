@@ -19,8 +19,6 @@
 
 body{
     background-color: var(--BackgroundColor);
-    
-    height: 100%;
 }
 
 header{
@@ -72,11 +70,10 @@ header{
 }
 
 main{
-    height: 100%;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 
     #nav{
         border-right: 1px solid var(--BorderColor);
@@ -195,9 +192,8 @@ main{
 #currentUsers{
     border-left: 1px solid var(--BorderColor);
     
-
     padding: 24px;
-
+    
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -206,6 +202,27 @@ main{
         font-family: var(--GlobalFont);
         font-weight: normal;
         color: var(--FontColor);
+    }
+
+    .divCurrentUsers{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+
+        .profileImage{
+            width: 40px;
+            height: 40px;
+    
+            border-radius: 50%;
+        }
+
+        .nameUser{
+            font-family: var(--FontNameUser);
+            color: var(--FontColor);
+            font-weight: normal;
+            font-size: 20px;
+        }
     }
 }
 
