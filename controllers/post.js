@@ -68,11 +68,7 @@ const postUserPost = async (req, res) => {
                 message: 'User not found'
             });
         }
-        let bufferData;
-        if (img_data){
-            bufferData = Buffer.from(img_data, 'base64');
-        }
-        const newPost = await Post.create({description, bufferData, userid});
+        const newPost = await Post.create({description, img_data, userid});
         // Update user posts_qnt
         user.posts_qnt = (user.posts_qnt || 0) + 1;
         // Save changes directly
