@@ -20,7 +20,7 @@ const Post = sequelize.define(
             allowNull: true
         },
         img_data:{
-            type: DataTypes.BLOB,
+            type: DataTypes.TEXT,
             allowNull: true
         },
         created_at:{
