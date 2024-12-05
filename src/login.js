@@ -36,6 +36,9 @@ button_confirm.addEventListener('click', () => {
                 const jsonData = await response.json();
                 // Storage authToken on localStorage
                 localStorage.authToken = jsonData.authToken;
+                localStorage.id = jsonData.user.id;
+                localStorage.name = jsonData.user.name;
+                localStorage.posts_quant = jsonData.user.posts_quant;
                 // window.location.replace('../index.html');
                 window.location.replace('../index.html');
             } else {
