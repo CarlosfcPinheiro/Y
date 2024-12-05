@@ -20,24 +20,23 @@ async function callPost(){
     }
   }
   
-   async function imageProfileGenerator() {
-    try {
-        const response = await fetch('https://cataas.com/cat')
-        return response;
-    } catch (error) {
+//    async function imageProfileGenerator() {
+//     try {
+//         const response = await fetch('https://cataas.com/cat')
+//         return response;
+//     } catch (error) {
         
-    }
-  }
+//     }
+//   }
 
   async function displayPosts(data){
     const postData = data;
     const divPost = document.querySelector('#posts')
-    const img = await imageProfileGenerator();
+    // const img = await imageProfileGenerator();
 
     postData.forEach(async (post) => {
         const name = document.createElement('h1');
-        // trocar para img
-        const profileImage = document.createElement('img');
+        const profileImage = document.createElement('div');
         const image = document.createElement('img');
         const description = document.createElement('p');
         const mensageIcon = document.createElement('img');
@@ -60,12 +59,12 @@ async function callPost(){
   
         name.innerText = post.author.name;
         description.innerText = post.description
-        profileImage.setAttribute('src', img.url)
+        // profileImage.setAttribute('src', img.url)
     
         // O ?? irá verificar se o valor post.img_data é igual a 'null'
         const verificationURL = post.img_data ?? ' ' ;
         // Decodificação da url
-        const urlImage = String.fromCharCode.apply(null, verificationURL.data)
+        const urlImage = String.fromCharCode.apply(null, verificationURL.data);
 
         image.setAttribute('src', urlImage);
         
@@ -96,10 +95,10 @@ async function callPost(){
   async function displayUsers(data) {
     const divCurrentUsers = document.querySelector('#currentUsers');
     const usesrData = data;
-    const img = await imageProfileGenerator();
+    // const img = await imageProfileGenerator();
     usesrData.forEach(async (users) =>{
         // trocar para img
-        const profileImage = document.createElement('img');
+        const profileImage = document.createElement('div');
         const nameUser = document.createElement('h1');
         const divUsers = document.createElement('div');
 
@@ -107,7 +106,7 @@ async function callPost(){
         profileImage.classList.add('profileImage');
         divUsers.classList.add('divCurrentUsers')
 
-       profileImage.setAttribute('src', img.url)
+    //    profileImage.setAttribute('src', img.url)
        nameUser.innerText = users.author.name;
 
        divUsers.appendChild(profileImage);
