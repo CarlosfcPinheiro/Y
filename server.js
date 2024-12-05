@@ -26,6 +26,9 @@ server.use('/api/v1/users', userRouter);
 server.use('/api/v1/posts', postRouter);
 // Applying swagger-ui to /api-docs route
 server.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerOp));
+// Set payload limit
+server.use(express.json({limit: '5mb'}));
+server.use(express.urlencoded({limit: '5mb', extended: true}));
 
 // Standard get request
 server.get('/', (req, res) => {
