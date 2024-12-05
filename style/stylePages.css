@@ -197,37 +197,60 @@ main {
 
 #currentUsers {
     border-left: 1px solid var(--BorderColor);
-    padding: 24px;
     
     display: flex;
     flex-direction: column;
-    gap: 24px;
 
     h1 {
         font-family: var(--GlobalFont);
         font-weight: normal;
+        font-size: 24px;
         color: var(--FontColor);
+
+        margin: 16px auto;
     }
 
     .divCurrentUsers{
+        border-bottom: 1px solid var(--BackgroundHoverButton);
+
+        padding: 8px;
+
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 6px;
 
         .profileImage{
-            width: 40px;
-            height: 40px;
+            background-color: #FFFFFF;
+
+            width: 45px;
+            height: 45px;
     
             border-radius: 50%;
         }
 
-        .nameUser{
-            font-family: var(--FontNameUser);
-            color: var(--FontColor);
-            font-weight: normal;
-            font-size: 20px;
+        .divNamePosts{
+            padding: 8px;
+            
+            .nameUser{
+                font-family: var(--FontNameUser);
+                color: var(--FontColor);
+                font-weight: normal;
+                font-size: 18px;
+
+                margin: 0;
+            }
+
+            .amountPosts{
+                font-family: var(--GlobalFont);
+                color: var(--FontColor);
+                font-weight: 300;
+                font-size: 16px;
+
+                margin: 0;
+            }
         }
+
     }
 }
 
