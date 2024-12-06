@@ -66,4 +66,43 @@ async function getPostUsers(data, name) {
     });
 }
 
+async function handleAtualizar(userId) {
+    const name = document.querySelector('#updateName').value;
+    const email = document.querySelector('#updateEmail').value;
+    const postsQnt = document.querySelector('#updatePostsQnt').value;
+
+    const updatedData = {
+        name: name || undefined,
+        email: email || undefined,
+        posts_qnt: postsQnt || undefined
+    };
+
+    const result = await updateUser(userId, updatedData);
+    if (result) {
+        alert('Usuário atualizado com sucesso!');
+        location.reload(); // Recarrega a página para refletir mudanças
+    } else {
+        alert('Erro ao atualizar usuário.');
+    }
+}
+
+let selectedUserId = null; // ID do usuário selecionado
+
+// Abre o modal com dados do usuário
+function openModal(userId, name, email, postsQnt) {
+    selectedUserId = userId;
+
+    document.querySelector('#updateName').value = name || '';
+    document.querySelector('#updateEmail').value = email || '';
+    document.querySelector('#updatePostsQnt').value = postsQnt || '';
+
+    document.getElementById('modal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+    selectedUserId = null;
+}
+
+
 window.onload = getUser;

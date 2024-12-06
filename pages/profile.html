@@ -10,6 +10,7 @@
     <script src="../src/profile.js" defer></script>
 
     <link rel="stylesheet" href="../style/stylePages.css">
+    <link rel="stylesheet" href="../style/profile.css">
     <link rel="shortcut icon" href="../images/icon.svg" type="image/x-icon">
 </head>
 
@@ -22,6 +23,29 @@
             <a href="register.html">Cadastre-se</a>
         </div>
     </header>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Atualizar Usuário</h2>
+
+            <form id="updateForm">
+                <label for="updateName">Nome:</label>
+                <input type="text" id="updateName" placeholder="Nome do usuário">
+
+                <label for="updateEmail">Email:</label>
+                <input type="email" id="updateEmail" placeholder="Email do usuário">
+
+                <button type="button" onclick="handleAtualizar(selectedUserId)">
+                    Atualizar
+                </button>
+            </form>
+
+            <button id="deleteButton" class="delete-button" onclick="handleDeletar(selectedUserId)">
+                Deletar Usuário
+            </button>
+        </div>
+    </div>
 
     <main>
         <div id="nav">
@@ -55,7 +79,7 @@
             <div id="divPostProfile">
                 <h1>Posts</h1>
                 <div id="postsUser">
-                    
+
                 </div>
             </div>
         </div>
