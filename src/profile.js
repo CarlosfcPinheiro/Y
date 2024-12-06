@@ -43,11 +43,24 @@ async function getUser() {
     }
 }
 
+async function imageProfileGenerator() {
+    try {
+      const response = await fetch('https://cataas.com/cat')
+      return response;
+      console.log(response)
+    } catch (error) {
+      console.log(`Erro ao acessar o servidor: ${error}`);
+    }
+    }
+
 async function getPostUsers(data, name) {
     const userPost = data;
     const divPostUser = document.querySelector('#postsUser');
     const UserName = document.querySelector('#UserName')
-    UserName.innerText = name
+    UserName.innerText = name;
+
+    const urlProfileImage = await imageProfileGenerator();
+    profileImage.style.backgroundImage = `url(${urlProfileImage.url})`;
 
     userPost.forEach(user => {
         const image = document.createElement('img');
