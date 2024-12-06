@@ -96,12 +96,7 @@ async function displayPosts(data) {
     description.innerText = post.description
     profileImage.setAttribute('src', urlProfileImage.url)
 
-    // O ?? irá verificar se o valor post.img_data é igual a 'null'
-    const verificationURL = post.img_data ?? ' ';
-    // Decodificação da url
-    const urlImage = String.fromCharCode.apply(null, verificationURL.data);
-
-    image.setAttribute('src', urlImage);
+    image.setAttribute('src', post.img_data);
 
     divHeader.appendChild(profileImage);
     divHeader.appendChild(name);
@@ -140,8 +135,6 @@ async function displayUsers(data) {
     const amountPosts = document.createElement('h2');
     const divUsers = document.createElement('div');
     const divNamePosts = document.createElement('div');
-    const buttonEdit = document.createElement('button');
-    const buttonDelete = document.createElement('button');
 
     // Configurando classes
     nameUser.classList.add('nameUser');
@@ -149,19 +142,11 @@ async function displayUsers(data) {
     profileImage.classList.add('profileImage');
     divUsers.classList.add('divCurrentUsers');
     divNamePosts.classList.add('divNamePosts');
-    buttonEdit.classList.add('editButton');
-    buttonDelete.classList.add('deleteButton');
 
     // Configurando conteúdo
     profileImage.setAttribute('src', urlProfileImage.url);
     nameUser.innerText = user.name;
     amountPosts.innerText = `Quantidade de posts: ${user.posts_qnt}`;
-    buttonEdit.innerText = 'Editar';
-    buttonDelete.innerText = 'Deletar';
-
-    // Adicionando eventos aos botões
-    buttonEdit.onclick = () => openModal(user.id, user.name, user.email, user.posts_qnt);
-    buttonDelete.onclick = () => handleDeletar(user.id);
 
     // Montando a estrutura
     divNamePosts.appendChild(nameUser);
@@ -169,8 +154,6 @@ async function displayUsers(data) {
 
     divUsers.appendChild(profileImage);
     divUsers.appendChild(divNamePosts);
-    divUsers.appendChild(buttonEdit);
-    divUsers.appendChild(buttonDelete);
 
     // Adicionando ao container principal
     divCurrentUsers.appendChild(divUsers);
