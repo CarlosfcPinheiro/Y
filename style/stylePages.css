@@ -33,6 +33,10 @@ header {
     img {
         width: 30px;
     }
+    
+    #arrow{
+        display: none;
+    }
 
     #links {
         display: flex;
