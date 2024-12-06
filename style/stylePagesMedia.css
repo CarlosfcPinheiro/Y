@@ -1,0 +1,35 @@
+:root {
+    --BackgroundColor: #1E1E1E;
+    --BackgroundHoverButton: rgba(255, 255, 255, 0.25);
+    --BorderColor: #FFFFFF;
+    --FontNameUser: "Poppins";
+    --GlobalFont: "Reem Kufi";
+    --FontColor: #FFFFFF;
+}
+
+@media screen and (max-width: 700px) {
+    header #arrow {
+        display: block;
+        width: 25px;
+        margin-top: 12px;
+        cursor: pointer;
+    }
+
+    header #mediaButtons{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    main #nav{
+        display: none;
+        min-height: 100px;
+        position: absolute;
+
+        border-bottom: 1px solid var(--BorderColor);
+    }
+
+    main #currentUsers{
+        min-height: 100vh;
+    }
+}
