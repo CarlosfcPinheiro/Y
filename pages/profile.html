@@ -30,27 +30,6 @@
         </div>
     </header>
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Atualizar Usuário</h2>
-
-            <form id="updateForm">
-                <label for="updateName">Nome:</label>
-                <input type="text" id="updateName" placeholder="Nome do usuário">
-
-                <label for="updateEmail">Email:</label>
-                <input type="email" id="updateEmail" placeholder="Email do usuário">
-
-                <button type="button" onclick="handleAtualizar(selectedUserId)">
-                    Atualizar
-                </button>
-            </form>
-
-            <button id="deleteButton" class="delete-button" onclick="handleDeletar(selectedUserId)">
-                Deletar Usuário
-            </button>
-        </div>
     </div>
 
     <main>
@@ -79,9 +58,17 @@
 
         <div id="profileContain">
             <div id="profile">
-                <div id="profileImage"></div>
-                <h2 id="UserName"></h2>
+                <div id="user">
+                    <div id="profileImage"></div>
+                    <h2 id="UserName"></h2>
+                </div>
+                <button id="attUser">Atualizar usuário</button>
             </div>
+            <form id="formUser">
+                <label for="name">Digite seu novo nome</label>
+                <input type="text" id="nameUser">
+                <button id="attButton" type="button">Atualizar</button>
+            </form>
             <div id="divPostProfile">
                 <h1>Posts</h1>
                 <div id="postsUser">

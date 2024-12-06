@@ -18,6 +18,27 @@ if (tokenActive){
     link_register.style.display = 'none';
 }
 
+// Onclick
+
+document.querySelector('#attUser').addEventListener('click', ()=>{
+    const form = document.querySelector('#formUser');
+    form.style.display === 'block' ? form.style.display = 'none' : form.style.display = 'block';
+})
+
+document.querySelector('#attButton').addEventListener('click',  ()=>{
+    const nameUser = document.querySelector('#nameUser');
+    const nameUserValue = nameUser.value.trim();
+
+    if(nameUserValue == ''){
+        alert('Digite um novo nome');
+        nameUser.focus();
+    }else{
+        const string = String(nameUserValue);
+        updateUser(string);
+    }
+})
+
+
 async function getUser() {
     const idUser = localStorage.id;
     const nameUser = localStorage.name;
@@ -42,31 +63,40 @@ async function getUser() {
     }
 }
 
-async function updateUser() {
+async function updateUser(inputValue) {
     const idUser = localStorage.id;
+    const token = localStorage.authToken;
+
     try {
         const response = await fetch(`https://prog-webii-projeto.onrender.com/api/v1/users/${idUser}`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(updatedData)
+            body: JSON.stringify({
+                "name": inputValue
+            })
         });
         
         if (!response.ok) {
             throw new Error(`Erro ao atualizar usuário: ${response.status}`);
         }
+        
 
-        const result = await response.json();
-        console.log(`Usuário atualizado com sucesso:`, result);
-        return result;
+        const newNameuser = await response.json();
+        console.log(newNameuser);
+        getPostUsersAtt(newNameuser.User.name);
+
+        
+
     } catch (error) {
         console.error(`Erro ao atualizar usuário: ${error.message}`);
-        return null;
+      
     }
 }
 
-async function deletePost( post) {
+async function deletePost(post) {
     try {
         const token = localStorage.authToken;
 
@@ -114,16 +144,12 @@ async function getPostUsers(data, name) {
         const image = document.createElement('img');
         const description = document.createElement('p');
         const deleteButton = document.createElement('button');
-        const attButton = document.createElement('button');
         const divButton = document.createElement('div');
         const divPost = document.createElement('div');
-        
- 
 
         image.classList.add('postUser');
         description.classList.add('descriptionUser');
         deleteButton.classList.add('deletePost');
-        attButton.classList.add('attButton');
         divButton.classList.add('buttons')
         divPost.classList.add('divPost');
         
@@ -131,9 +157,7 @@ async function getPostUsers(data, name) {
         description.innerText = user.description;
 
         deleteButton.innerText = 'Deletar';
-        attButton.innerText = 'Atualizar';
 
-        divButton.appendChild(attButton);
         divButton.appendChild(deleteButton);
 
         divPost.appendChild(image);
@@ -145,5 +169,12 @@ async function getPostUsers(data, name) {
         deleteButton.addEventListener('click', () => deletePost(user));
     });
 }
+
+async function getPostUsersAtt(name) {
+    const UserName = document.querySelector('#UserName')
+    UserName.innerText = String(name);;
+}
+
+
 
 window.onload = getUser;
