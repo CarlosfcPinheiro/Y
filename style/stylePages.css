@@ -426,6 +426,7 @@ main {
 
         #profileImage{
             background-color: #FFFFFF;
+            background-size: contain;
 
             width: 80px;
             height: 80px;
