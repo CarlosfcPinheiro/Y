@@ -292,7 +292,25 @@ main {
 
         }
 
-        div {
+        .image-preview{
+            width: 20rem;
+            height: 20rem;
+            
+            background-color: var(--BackgroundHoverButton);
+            margin-bottom: 10px;
+
+            border-radius: 10px;
+
+            img{
+                width: 100%;
+                height: 100%;
+
+                border-radius: 10px;
+                border: none;
+            }
+        }
+
+        .div-input {
             border: 1px solid var(--BorderColor);
             border-radius: 10px;
 
@@ -306,7 +324,18 @@ main {
             align-items: center;
 
             input {
-                display: none;
+                width: 70%;
+                height: 2rem;
+
+                border-radius: 10px;
+                border: 1px solid var(--BorderColor);
+                outline: none;
+
+                padding-left: 0.2rem;
+                font-family: var(--GlobalFont);
+                color: var(--FontColor);
+
+                background-color: var(--BackgroundHoverButton);
             }
 
             label {
@@ -351,6 +380,9 @@ main {
 
             overflow: visible;
             resize: none;
+
+            outline: none;
+            font-family: var(--GlobalFont);
         }
 
         textarea::-webkit-scrollbar {
