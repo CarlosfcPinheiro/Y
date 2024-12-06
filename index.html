@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="src/index.js" defer></script>
     <script src="src/indexGet.js" defer></script>
+    <script src="src/buttom.js" defer></script>
+
     <title>Bem-vindo a Y</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spinkit/2.0.1/spinkit.min.css">
+
     <link rel="stylesheet" href="style/stylePages.css">
     <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style/stylePagesMedia.css">
 </head>
-
 <body>
     <header>
-        <img src="images/icon.svg" alt="Logo Be YourSelf">
+        <div id="mediaButtons">
+            <img src="images/icon.svg" alt="Logo Be YourSelf">
+            <img src="images/arrow.svg" alt="" id="arrow" onclick="clicar()">
+        </div>
+        
 
         <div id="links">
             <a id="login-link" href="pages/login.html">Login</a>
@@ -45,11 +53,30 @@
             </ul>
         </div>
         <div id="posts">
+            <div id="loading-posts">
+                <div class="sk-chase">
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                  </div>  
+            </div>
         </div>
         <div id="currentUsers">
             <h1>Usuários Recentes</h1>
+            <div id="loading-users">
+                <div class="sk-chase">
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                  </div>  
+            </div>
         </div>
     </main>
 </body>
-
 </html>

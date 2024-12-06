@@ -1,3 +1,23 @@
+// Checks if the token is still valid
+const isTokenActive = (token) => {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const currentTime = Math.floor(Date.now() / 1000);
+    // Returns true or false
+    return currentTime < payload.exp;
+};
+
+// OBS: TROCAR DE DEFER PARA ASYNC
+  
+const tokenActive = isTokenActive(localStorage.getItem('authToken'));
+// Hide login and register links
+if (tokenActive){
+    const link_login = document.getElementById('login-link');
+    const link_register = document.getElementById('register-link');
+
+    link_login.style.display = 'none';
+    link_register.style.display = 'none';
+}
+
 async function getUser() {
     const idUser = localStorage.id;
     const nameUser = localStorage.name;
@@ -23,11 +43,24 @@ async function getUser() {
     }
 }
 
+async function imageProfileGenerator() {
+    try {
+      const response = await fetch('https://cataas.com/cat')
+      return response;
+      console.log(response)
+    } catch (error) {
+      console.log(`Erro ao acessar o servidor: ${error}`);
+    }
+    }
+
 async function getPostUsers(data, name) {
     const userPost = data;
     const divPostUser = document.querySelector('#postsUser');
     const UserName = document.querySelector('#UserName')
-    UserName.innerText = name
+    UserName.innerText = name;
+
+    const urlProfileImage = await imageProfileGenerator();
+    profileImage.style.backgroundImage = `url(${urlProfileImage.url})`;
 
     userPost.forEach(user => {
         const image = document.createElement('img');
@@ -37,10 +70,6 @@ async function getPostUsers(data, name) {
         const divButton = document.createElement('div');
         const divPost = document.createElement('div');
         
-        // O ?? irá verificar se o valor post.img_data é igual a 'null'
-        const verificationURL = user.img_data ?? ' ';
-        // Decodificação da url
-        const urlImage = String.fromCharCode.apply(null, verificationURL.data);
 
         image.classList.add('postUser');
         description.classList.add('descriptionUser');
@@ -49,7 +78,7 @@ async function getPostUsers(data, name) {
         divButton.classList.add('buttons')
         divPost.classList.add('divPost');
         
-        image.setAttribute('src', urlImage);
+        image.setAttribute('src', user.img_data);
         description.innerText = user.description;
 
         deleteButton.innerText = 'Deletar';

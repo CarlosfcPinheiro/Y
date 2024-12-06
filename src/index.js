@@ -5,6 +5,8 @@ const isTokenActive = (token) => {
     // Returns true or false
     return currentTime < payload.exp;
 };
+
+// OBS: TROCAR DE DEFER PARA ASYNC
   
 const tokenActive = isTokenActive(localStorage.getItem('authToken'));
 // Hide login and register links

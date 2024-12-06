@@ -1,0 +1,139 @@
+:root {
+    --BackgroundColor: #1E1E1E;
+    --BorderColor: #FFFFFF;
+    --FontColor: #FFFFFF;
+}
+
+@media screen and (max-width: 700px) {
+    header #arrow {
+        display: block;
+        width: 25px;
+        margin-top: 12px;
+        cursor: pointer;
+    }
+
+    header #mediaButtons{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    main #nav{
+        display: none;
+        min-height: 100px;
+        position: absolute;
+        border-bottom: 1px solid var(--BorderColor);
+    }
+
+    main #currentUsers{
+        min-height: 100vh;
+    }
+
+    main #currentUsers h1{
+        font-size: 18px;
+    }
+
+    main #currentUsers .divCurrentUsers .profileImage{
+        width: 30px;
+        height: 30px;
+    }
+
+    main #currentUsers .divCurrentUsers .divNamePosts .nameUser{
+        font-size: 14px;
+    }
+
+    main #currentUsers .divCurrentUsers .divNamePosts .amountPosts{
+        font-size: 12px;
+    }
+
+    main #addPost{
+        height: 400px;
+        margin-top: 100px;
+    }
+
+    main #posts{
+        margin: 0 auto;
+    }
+
+    main #posts .divAll{
+        width: 300px;
+        height: 300px;
+    }
+
+    main #posts .divAll .post{
+        width: 300px;
+    }
+
+    main #posts .headerPost .profileImage{
+        width: 35px;
+        height: 35px;
+    }
+
+    main #profileContain #divPostProfile #postsUser{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main #profileContain #divPostProfile #postsUser .divPost .postUser{
+        height: 200px;
+    }
+
+    main #profileContain #divPostProfile #postsUser .divPost .buttons{
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 980px) and (min-width: 701px) {
+    header #arrow {
+        display: block;
+        width: 25px;
+        margin-top: 12px;
+        cursor: pointer;
+    }
+
+    header #mediaButtons{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    main #nav{
+        display: none;
+        min-height: 100px;
+        position: absolute;
+        border-bottom: 1px solid var(--BorderColor);
+    }
+    
+    main #posts{
+        margin: 0 auto;
+    }
+
+    main #posts .divAll{
+        width: 400px;
+        height: 400px;
+    }
+
+    main #posts .divAll .post{
+        width: 400px;
+    }
+
+    main #posts .headerPost .profileImage{
+        width: 35px;
+        height: 35px;
+    }
+
+    main #addPost{
+        margin-top: 100px;
+    }
+
+    main #profileContain #divPostProfile #postsUser{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main #profileContain #divPostProfile #postsUser .divPost .postUser{
+        height: 300px;
+    }
+
+    main #profileContain #divPostProfile #postsUser .divPost .buttons{
+        justify-content: space-between;
+    }
+}
