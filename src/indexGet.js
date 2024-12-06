@@ -1,3 +1,6 @@
+const bg_loading_posts = document.getElementById('loading-posts');
+const bg_loading_users = document.getElementById('loading-users');
+
 function callFunctions(){
     callPost() 
     callUsers()
@@ -19,6 +22,7 @@ function callFunctions(){
             const data = await response.json();
             displayPosts(data);
         }
+        bg_loading_posts.classList.add('hidden');
     } catch (error) {
         console.log(`Erro ao acessar o servidor :${error}`);
     }
@@ -42,6 +46,7 @@ function callFunctions(){
             displayUsers(data);
             console.log(data)
         }
+        bg_loading_users.classList.add('hidden');
     } catch (error) {
         console.log(`Erro ao acessar o servidor :${error}`);
     }
