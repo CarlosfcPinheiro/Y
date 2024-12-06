@@ -77,6 +77,8 @@ main {
     justify-content: space-between;
 
     #nav {
+        background-color: var(--BackgroundColor);
+        
         min-height: 100vh;
 
         border-right: 1px solid var(--BorderColor);

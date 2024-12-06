@@ -1,9 +1,6 @@
 :root {
     --BackgroundColor: #1E1E1E;
-    --BackgroundHoverButton: rgba(255, 255, 255, 0.25);
     --BorderColor: #FFFFFF;
-    --FontNameUser: "Poppins";
-    --GlobalFont: "Reem Kufi";
     --FontColor: #FFFFFF;
 }
 
@@ -25,11 +22,19 @@
         display: none;
         min-height: 100px;
         position: absolute;
-
         border-bottom: 1px solid var(--BorderColor);
     }
 
     main #currentUsers{
         min-height: 100vh;
+    }
+
+    main #currentUsers h1{
+        font-size: 18px;
+    }
+
+    main #addPost{
+        height: 400px;
+        margin-top: 100px;
     }
 }
