@@ -457,6 +457,32 @@ main {
             color: var(--FontColor);
         }
 
+        #user{
+            width: 80%;
+
+            display: flex;
+        }
+
+        button{
+            font-family: var(--GlobalFont);
+            font-weight: normal;
+            color: var(--FontColor);
+
+            background-color: transparent;
+
+            border: 1px solid var(--BorderColor);
+
+            height: 40px;
+
+            padding: 2px 8px;
+        }
+
+        button:hover{
+            background-color: var(--BackgroundHoverButton);
+
+            transition: all .3s ease;
+        }
+
         #profileImage{
             background-color: #FFFFFF;
             background-size: contain;
@@ -467,6 +493,22 @@ main {
             border-radius: 50%;
 
             margin-right: 10px;
+        }
+    }
+    #formUser{
+        width: 300px;
+
+        margin: 0 auto;
+
+        display: none;
+        flex-direction: column;
+
+        label{
+            font-family: var(--GlobalFont);
+            font-weight: normal;
+            color: var(--FontColor);
+
+            margin: 8px 0;
         }
     }
 
