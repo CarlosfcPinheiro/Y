@@ -21,7 +21,6 @@ if (tokenActive){
 async function getUser() {
     const idUser = localStorage.id;
     const nameUser = localStorage.name;
-    console.log(idUser)
 
     try {
         const response = await fetch(`https://prog-webii-projeto.onrender.com/api/v1/posts/${idUser}`,
@@ -43,11 +42,60 @@ async function getUser() {
     }
 }
 
+async function updateUser() {
+    const idUser = localStorage.id;
+    try {
+        const response = await fetch(`https://prog-webii-projeto.onrender.com/api/v1/users/${idUser}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedData)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Erro ao atualizar usuário: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log(`Usuário atualizado com sucesso:`, result);
+        return result;
+    } catch (error) {
+        console.error(`Erro ao atualizar usuário: ${error.message}`);
+        return null;
+    }
+}
+
+async function deletePost( post) {
+    try {
+        const token = localStorage.authToken;
+
+        const response = await fetch(`https://prog-webii-projeto.onrender.com/api/v1/posts/${post.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro ao deletar post: ${response.status}`);
+        }
+
+        console.log(`Post deletado com sucesso`);
+
+        window.onload = getUser;
+
+    } catch (error) {
+        console.error(`Erro ao deletar post: ${error.message}`);
+        return false;
+    }
+}
+
 async function imageProfileGenerator() {
     try {
       const response = await fetch('https://cataas.com/cat')
       return response;
-      console.log(response)
     } catch (error) {
       console.log(`Erro ao acessar o servidor: ${error}`);
     }
@@ -62,7 +110,7 @@ async function getPostUsers(data, name) {
     const urlProfileImage = await imageProfileGenerator();
     profileImage.style.backgroundImage = `url(${urlProfileImage.url})`;
 
-    userPost.forEach(user => {
+    userPost.forEach(async (user) => {
         const image = document.createElement('img');
         const description = document.createElement('p');
         const deleteButton = document.createElement('button');
@@ -70,6 +118,7 @@ async function getPostUsers(data, name) {
         const divButton = document.createElement('div');
         const divPost = document.createElement('div');
         
+ 
 
         image.classList.add('postUser');
         description.classList.add('descriptionUser');
@@ -92,46 +141,9 @@ async function getPostUsers(data, name) {
         divPost.appendChild(divButton);
 
         divPostUser.appendChild(divPost);
+
+        deleteButton.addEventListener('click', () => deletePost(user));
     });
 }
-
-async function handleAtualizar(userId) {
-    const name = document.querySelector('#updateName').value;
-    const email = document.querySelector('#updateEmail').value;
-    const postsQnt = document.querySelector('#updatePostsQnt').value;
-
-    const updatedData = {
-        name: name || undefined,
-        email: email || undefined,
-        posts_qnt: postsQnt || undefined
-    };
-
-    const result = await updateUser(userId, updatedData);
-    if (result) {
-        alert('Usuário atualizado com sucesso!');
-        location.reload(); // Recarrega a página para refletir mudanças
-    } else {
-        alert('Erro ao atualizar usuário.');
-    }
-}
-
-let selectedUserId = null; // ID do usuário selecionado
-
-// Abre o modal com dados do usuário
-function openModal(userId, name, email, postsQnt) {
-    selectedUserId = userId;
-
-    document.querySelector('#updateName').value = name || '';
-    document.querySelector('#updateEmail').value = email || '';
-    document.querySelector('#updatePostsQnt').value = postsQnt || '';
-
-    document.getElementById('modal').style.display = 'block';
-}
-
-function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-    selectedUserId = null;
-}
-
 
 window.onload = getUser;
