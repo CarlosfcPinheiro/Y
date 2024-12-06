@@ -91,12 +91,9 @@ function callFunctions(){
     description.innerText = post.description
     profileImage.setAttribute('src', urlProfileImage.url)
   
-    // O ?? irá verificar se o valor post.img_data é igual a 'null'
-    const verificationURL = post.img_data ?? ' ' ;
-    // Decodificação da url
-    const urlImage = String.fromCharCode.apply(null, verificationURL.data);
+
   
-    image.setAttribute('src', urlImage);
+    image.setAttribute('src', post.img_data);
     
     divHeader.appendChild(profileImage);
     divHeader.appendChild(name);

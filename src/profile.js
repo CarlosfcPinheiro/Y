@@ -37,10 +37,6 @@ async function getPostUsers(data, name) {
         const divButton = document.createElement('div');
         const divPost = document.createElement('div');
         
-        // O ?? irá verificar se o valor post.img_data é igual a 'null'
-        const verificationURL = user.img_data ?? ' ';
-        // Decodificação da url
-        const urlImage = String.fromCharCode.apply(null, verificationURL.data);
 
         image.classList.add('postUser');
         description.classList.add('descriptionUser');
@@ -49,7 +45,7 @@ async function getPostUsers(data, name) {
         divButton.classList.add('buttons')
         divPost.classList.add('divPost');
         
-        image.setAttribute('src', urlImage);
+        image.setAttribute('src', user.img_data);
         description.innerText = user.description;
 
         deleteButton.innerText = 'Deletar';
