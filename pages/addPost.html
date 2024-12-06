@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../src/addPost.js" defer></script>
+
     <title>Document</title>
-
-    <script src="../src/buttom.js" defer></script>
-
     <link rel="stylesheet" href="../style/stylePages.css">
     <link rel="shortcut icon" href="../images/icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../style/stylePagesMedia.css">
 </head>
 <body>
     <header>
-        <div id="mediaButtons">
-            <img src="../images/icon.svg" alt="Logo Be YourSelf">
-            <img src="../images/arrow.svg" alt="" id="arrow" onclick="clicar()">
-        </div>
-        
+        <img src="../images/icon.svg" alt="Logo Be YourSelf">
 
         <div id="links">
-            <a id="login-link" href="login.html">Login</a>
-            <a id="register-link" href="register.html">Cadastre-se</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Cadastre-se</a>
         </div>
     </header>
 
@@ -37,10 +32,11 @@
         <div id="addPost">
             <div class="contain">
                 <h1>Adicionar Post</h1>
-
-                <div>
-                    <label for="file">Escolha um Arquivo</label>
-                    <input type="file" name="" id="file">
+                <div class="image-preview" id="image-preview">
+                    <img id="img-selected" src="" alt="">
+                </div>
+                <div class="div-input">
+                    <input type="text" name="" id="input-url" placeholder="Insira a url da imagem">
                 </div>
                 
                 <label for="description" id="labelDescription">Descrição</label>
