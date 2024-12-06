@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="../src/buttom.js" defer></script>
+
     <link rel="stylesheet" href="../style/stylePages.css">
     <link rel="shortcut icon" href="../images/icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../style/stylePagesMedia.css">
 </head>
 <body>
     <header>
-        <img src="../images/icon.svg" alt="Logo Be YourSelf">
+        <div id="mediaButtons">
+            <img src="../images/icon.svg" alt="Logo Be YourSelf">
+            <img src="../images/arrow.svg" alt="" id="arrow" onclick="clicar()">
+        </div>
+        
 
         <div id="links">
-            <a href="login.html">Login</a>
-            <a href="register.html">Cadastre-se</a>
+            <a id="login-link" href="pages/login.html">Login</a>
+            <a id="register-link" href="pages/register.html">Cadastre-se</a>
         </div>
     </header>
 
