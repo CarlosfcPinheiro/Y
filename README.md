@@ -89,5 +89,5 @@ http://localhost:5500/api/v1
 ```
 A aplicação está documentada através do endpoint:
 ```bas
-http://localhost:5500/api/v1/api-docs
+http://localhost:5500/api-docs
 ```
