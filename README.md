@@ -2,11 +2,17 @@
 O projeto consiste em uma aplicação Fullstack que represente um protótipo de uma rede social para um projeto da matéria de **Programação para Web II**.
 
 ## 📖 Sumário
+- [Tecnologias](#️-tecnologias)
+    - [Back-end](#back-end)
+    - [Front-end](#front-end)
+- [Requisitos-da-Aplicação](#️-requisitos-da-aplicação)
+- [Como-rodar-localmente](#-como-rodar-localmente)
+- [Rotas-da-Aplicação](#️-rotas-da-aplicação)
 
 ## 🖥️ Tecnologias
 Tecnologias utilizadas no projeto.
 
-**Back-end**
+### Back-end
 - Javascript
 - NodeJS
 - Express (para desenvolvimento da API Rest)
@@ -16,7 +22,7 @@ Tecnologias utilizadas no projeto.
 - PostgreSQL (Banco de dados relacional para persistência dos dados)
 - Swagger (para documentação da API Rest)
 
-**Front-end**
+### Front-end
 - Javascript
 - HTML
 - CSS
