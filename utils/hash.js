@@ -1,6 +1,6 @@
 // Importing modules
 // bcrypt => module that include hashing functions
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Generate a hash based on a password
 const hashPaswd = async (paswd) => {
