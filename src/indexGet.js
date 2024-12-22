@@ -8,7 +8,7 @@ function callFunctions() {
 
 async function callPost() {
   try {
-    const response = await fetch('https://prog-webii-projeto.onrender.com/api/v1/posts',
+    const response = await fetch('http://localhost:3000/api/v1/posts',
       {
         method: 'GET',
         headers: {
@@ -31,7 +31,7 @@ async function callPost() {
 async function callUsers() {
 
   try {
-    const response = await fetch('https://prog-webii-projeto.onrender.com/api/v1/users',
+    const response = await fetch('http://localhost:3000/api/v1/users',
       {
         method: 'GET',
         headers: {

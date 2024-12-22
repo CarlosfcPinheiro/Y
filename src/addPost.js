@@ -4,7 +4,7 @@ const img_selected = document.getElementById('img-selected');
 
 const button_send = document.getElementById('postSubmit');
 
-const url_create_post = 'https://prog-webii-projeto.onrender.com/api/v1/posts'
+const url_create_post = 'http://localhost:3000/api/v1/posts'
 
 button_send.addEventListener('click', async () => {
     const url_image = String(input_url.value);

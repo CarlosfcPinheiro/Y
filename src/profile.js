@@ -44,7 +44,7 @@ async function getUser() {
     const nameUser = localStorage.name;
 
     try {
-        const response = await fetch(`https://prog-webii-projeto.onrender.com/api/v1/posts/${idUser}`,
+        const response = await fetch(`http://localhost:3000/api/v1/posts/${idUser}`,
             {
                 method : 'GET',
                 headers : {
@@ -68,7 +68,7 @@ async function updateUser(inputValue) {
     const token = localStorage.authToken;
 
     try {
-        const response = await fetch(`https://prog-webii-projeto.onrender.com/api/v1/users/${idUser}`, {
+        const response = await fetch(`http://localhost:3000/api/v1/users/${idUser}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ async function deletePost(post) {
     try {
         const token = localStorage.authToken;
 
-        const response = await fetch(`https://prog-webii-projeto.onrender.com/api/v1/posts/${post.id}`, {
+        const response = await fetch(`http://localhost:3000/api/v1/posts/${post.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const bg_loading = document.getElementById('loading');
 const register_fail = document.getElementById('register-fail');
 const register_fail_same = document.getElementById('register-fail-same');
 // register endpoint
-const url_register = 'https://prog-webii-projeto.onrender.com/api/v1/users';
+const url_register = 'http://localhost:3000/api/v1/users';
 
 button_confirm.addEventListener('click', (event) => {
     button_confirm.disabled = true;

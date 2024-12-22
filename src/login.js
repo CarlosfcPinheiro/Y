@@ -6,7 +6,7 @@ const button_confirm = document.getElementById('buttonLogin');
 const bg_loading = document.getElementById('loading');
 const login_fail = document.getElementById('login-fail');
 
-const url_login = 'https://prog-webii-projeto.onrender.com/api/v1/users/login';
+const url_login = 'http://localhost:3000/api/v1/users/login';
 
 button_confirm.addEventListener('click', () => {
     button_confirm.disabled = true;
