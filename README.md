@@ -41,7 +41,7 @@ Para puxar os arquivos do projeto, faça
 ```bash
 git clone https://github.com/CarlosfcPinheiro/Y.git
 ```
-Ou baixe o zip do projeto e descompacte através do seu descompactador de arquivos zip.
+Ou baixe o [zip do projeto](https://github.com/CarlosfcPinheiro/Y/releases/download/zip/Y-main.zip) e descompacte através do seu descompactador de arquivos zip.
 
 ### 2. Configure as variáveis de ambiente
 Ao entrar no diretório principal, entre no diretório backend:
