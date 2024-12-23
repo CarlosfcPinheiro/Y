@@ -48,7 +48,7 @@ Ao entrar no diretório principal, entre no diretório onde se encontra o script
 ```bash
 cd backend/db/script_bd
 ```
-Exporte e execute o script SQL em sua interface de interação com o PostgreSQL (como psql, DataGrip...), para construção do modelo do banco de dados.
+Importe e execute o script SQL em sua interface de interação com o PostgreSQL (como psql, DataGrip...), para construção do modelo do banco de dados.
 
 ### 3. Configure as variáveis de ambiente
 Retorne para o diretório do backend e, após inicializar seu banco de dados PostgreSQL, configure as variáveis de ambiente contidas no arquivo .env conforme as suas credenciais, como por exemplo:
