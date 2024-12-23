@@ -43,12 +43,15 @@ git clone https://github.com/CarlosfcPinheiro/Y.git
 ```
 Ou baixe o [zip do projeto](https://github.com/CarlosfcPinheiro/Y/releases/download/zip/Y-main.zip) e descompacte através do seu descompactador de arquivos zip.
 
-### 2. Configure as variáveis de ambiente
-Ao entrar no diretório principal, entre no diretório backend:
+### 2. Construa o banco de dados
+Ao entrar no diretório principal, entre no diretório onde se encontra o script SQL do banco de dados, com o nome de *yweb.sql*
 ```bash
-cd backend
+cd backend/db/script_bd
 ```
-Após inicializar seu banco de dados PostgreSQL, configure as variáveis de ambiente contidas no arquivo .env conforme as suas credenciais, como por exemplo:
+Exporte e execute o script SQL em sua interface de interação com o PostgreSQL (como psql, DataGrip...), para construção do modelo do banco de dados.
+
+### 3. Configure as variáveis de ambiente
+Retorne para o diretório do backend e, após inicializar seu banco de dados PostgreSQL, configure as variáveis de ambiente contidas no arquivo .env conforme as suas credenciais, como por exemplo:
 ```.env
 # Server config
 PORT=3000
@@ -62,7 +65,7 @@ DB_PASWD=root
 SECRET_KEY=secret123
 ```
 
-### 3. Inicie o servidor Back-end
+### 4. Inicie o servidor Back-end
 Acesse o diretório do projeto no seu shell de preferência (como powershell, bash, zsh...) e entre no diretório backend:
 ```bash
 cd backend
@@ -77,7 +80,7 @@ npm start
 ```
 Pronto, agora seu servidor da aplicação back-end estará rodando no seu terminal. Não o feche. Se fechado, o servidor não ficará mais ativo.
 
-### 4. Abra o Front-end em outro servidor local
+### 5. Abra o Front-end em outro servidor local
 Abra outro terminal e retorne para o diretório principal do projeto. Após isso, no seu editor de código de preferência (como VScode), utilize algum local server initializer (como o live server), para iniciar um servidor local para abrir a página **index.html**.
 
 ***obs: esse servidor deverá estar rodando na porta padrão 5500, devido a configuração da aplicação***
