@@ -128,6 +128,7 @@ async function displayUsers(data) {
 
   usersData.forEach(async (user) => {
     const urlProfileImage = await imageProfileGenerator();
+    console.log(user)
 
     // Criando elementos
     const profileImage = document.createElement('img');

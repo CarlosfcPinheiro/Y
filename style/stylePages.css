@@ -142,8 +142,8 @@ main {
 
 #posts {
     .divAll {
-        width: 500px;
-        height: 500px;
+        width: 450px;
+        height: 450px;
         margin-top: 32px;
 
         .headerPost {

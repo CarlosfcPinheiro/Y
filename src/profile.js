@@ -85,8 +85,8 @@ async function updateUser(inputValue) {
         
 
         const newNameuser = await response.json();
+        localStorage.setItem('name', newNameuser.User.name);
         console.log(newNameuser);
-        getPostUsersAtt(newNameuser.User.name);
 
         
 
@@ -169,12 +169,5 @@ async function getPostUsers(data, name) {
         deleteButton.addEventListener('click', () => deletePost(user));
     });
 }
-
-async function getPostUsersAtt(name) {
-    const UserName = document.querySelector('#UserName')
-    UserName.innerText = String(name);;
-}
-
-
 
 window.onload = getUser;
